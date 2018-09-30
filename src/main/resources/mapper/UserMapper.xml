@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aikefu.mapper.UserMapper">
+
+	<!-- 通用查询结果列 -->
+	<sql id="Base_Column_List">
+		user_id as userId,user_name as userName,user_display_name as userDisplayName,user_pass as userPass,user_email as userEmail,user_avatar as userAvatar,user_desc as userDesc,login_enable as loginEnable,login_last as loginLast,login_error as loginError
+	</sql>
+
+	<delete id="deleteAll">
+		DELETE FROM USER
+	</delete>
+
+	<select id="selectListByWrapper" resultType="com.aikefu.entity.domain.User">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM USER
+		<!-- 判断 wrapper 是否为空 emptyOfWhere -->
+		<where>
+			${ew.sqlSegment}
+		</where>
+	</select>
+</mapper>
