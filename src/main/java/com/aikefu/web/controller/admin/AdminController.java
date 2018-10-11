@@ -96,8 +96,7 @@ public class AdminController extends BaseController {
         } else {
             user = userService.getUserByWrapper(new QueryWrapper<User>().eq("user_name",loginName).eq("user_pass",SecureUtil.md5(loginPwd)));
         }
-        user.setLoginLast(DateUtil.date());
-        userService.saveOrUpdate(user);
+        userService.updateUserLoginLast(DateUtil.date());
         //判断User对象是否相等
         if (ObjectUtil.equal(aUser, user)) {
             session.setAttribute(AikefuConst.USER_SESSION_KEY, aUser);

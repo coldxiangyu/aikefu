@@ -14,7 +14,7 @@
 	<select id="selectListByWrapper" resultType="com.aikefu.entity.domain.User">
 		SELECT
 		<include refid="Base_Column_List" />
-		FROM USER
+		FROM user
 		<!-- 判断 wrapper 是否为空 emptyOfWhere -->
 		<where>
 			${ew.sqlSegment}

@@ -13,10 +13,10 @@ public class AikefuConst {
     /**
      * user_session
      */
-    public static String USER_SESSION_KEY = "user_session";
+    public static final String USER_SESSION_KEY = "user_session";
 
     /**
      * 登陆次数
      */
-    public static Integer USER_LOGIN_TIMES = 5;
+    public static final Integer USER_LOGIN_TIMES = 5;
 }
